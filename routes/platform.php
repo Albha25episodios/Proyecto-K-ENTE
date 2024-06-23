@@ -19,6 +19,8 @@ use App\Orchid\Screens\User\UserListScreen;
 use App\Orchid\Screens\User\UserProfileScreen;
 use Illuminate\Support\Facades\Route;
 use Tabuna\Breadcrumbs\Trail;
+use App\Orchid\Screens\QuechuaEditScreen;
+use App\Orchid\Screens\QuechuaListScreen;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,7 +36,7 @@ use Tabuna\Breadcrumbs\Trail;
 // Main
 Route::screen('/main', PlatformScreen::class)
     ->name('platform.main');
-
+    
 // Platform > Profile
 Route::screen('profile', UserProfileScreen::class)
     ->name('platform.profile')
@@ -56,7 +58,7 @@ Route::screen('users/create', UserEditScreen::class)
         ->parent('platform.systems.users')
         ->push(__('Create'), route('platform.systems.users.create')));
 
-// Platform > System > Users
+        // Platform > System > Users
 Route::screen('users', UserListScreen::class)
     ->name('platform.systems.users')
     ->breadcrumbs(fn (Trail $trail) => $trail
@@ -102,3 +104,9 @@ Route::screen('/examples/charts', ExampleChartsScreen::class)->name('platform.ex
 Route::screen('/examples/cards', ExampleCardsScreen::class)->name('platform.example.cards');
 
 //Route::screen('idea', Idea::class, 'platform.screens.idea');
+
+Route::screen('quechua/{quechua?}', QuechuaEditScreen::class)
+    ->name('platform.quechua.edit');
+
+Route::screen('quechuas', QuechuaListScreen::class)
+    ->name('platform.quechua.list');

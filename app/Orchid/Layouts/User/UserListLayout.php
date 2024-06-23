@@ -49,7 +49,6 @@ class UserListLayout extends Table
             TD::make('created_at', __('Created'))
                 ->usingComponent(DateTimeSplit::class)
                 ->align(TD::ALIGN_RIGHT)
-                ->defaultHidden()
                 ->sort(),
 
             TD::make('updated_at', __('Last edit'))

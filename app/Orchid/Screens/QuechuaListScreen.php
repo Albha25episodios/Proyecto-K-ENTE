@@ -1,13 +1,13 @@
 <?php
 
-declare(strict_types=1);
-
 namespace App\Orchid\Screens;
 
+use App\Models\Quechua;
+use App\Orchid\Layouts\QuechuaListLayout;
+use Orchid\Screen\Actions\Link;
 use Orchid\Screen\Screen;
-use Orchid\Support\Facades\Layout;
 
-class PlatformScreen extends Screen
+class QuechuaListScreen extends Screen
 {
     /**
      * Fetch data to be displayed on the screen.
@@ -16,23 +16,19 @@ class PlatformScreen extends Screen
      */
     public function query(): iterable
     {
-        return [];
+        return [
+          'quechuas' => Quechua::paginate()
+        ];
     }
 
     /**
      * The name of the screen displayed in the header.
+     *
+     * @return string|null
      */
     public function name(): ?string
     {
-        return 'Get Started';
-    }
-
-    /**
-     * Display header description.
-     */
-    public function description(): ?string
-    {
-        return 'Bienvenido a tu interfaz de usuario.';
+        return 'Palabras en quechua';
     }
 
     /**
@@ -42,19 +38,22 @@ class PlatformScreen extends Screen
      */
     public function commandBar(): iterable
     {
-        return [];
+        return [
+          Link::make('Create new')
+              ->icon('pencil')
+              ->route('platform.quechua.edit')
+        ];
     }
 
     /**
      * The screen's layout elements.
      *
-     * @return \Orchid\Screen\Layout[]
+     * @return \Orchid\Screen\Layout[]|string[]
      */
     public function layout(): iterable
     {
         return [
-            Layout::view('platform::partials.update-assets'),
-            Layout::view('platform::partials.welcome'),
+          QuechuaListLayout::class
         ];
     }
 }

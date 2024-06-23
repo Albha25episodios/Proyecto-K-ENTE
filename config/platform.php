@@ -318,4 +318,6 @@ return [
 
     'provider' => \App\Orchid\PlatformProvider::class,
 
+    'resource_group' => 'Mis paquetes',
+
 ];
