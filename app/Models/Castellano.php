@@ -19,6 +19,7 @@ class Castellano extends Model
         'significado_aymara',
     ];
 
+    //=======================Relaciones---------------------------------------------------------------
     public function quechua() {
         return $this->belongsToMany(Quechua::class, 'quechua_detalles', 'castellano_id', 'quechua_id');
     }
@@ -26,4 +27,23 @@ class Castellano extends Model
     public function aymara() {
         return $this->belongsToMany('App\Models\Aymara', 'aymara_detalles', 'castellano_id', 'aymara_id');
     }
+
+
+    // Mutador para capitalizar la primera letra de la palabra
+    public function setPalabraAttribute($value)
+    {
+        $this->attributes['palabra'] = ucwords(strtolower($value));
+    }
+
+    // Mutador para capitalizar la primera letra del significado en Quechua
+    public function setSignificadoQuechuaAttribute($value)
+    {
+        $this->attributes['significado_quechua'] = ucfirst($value);
+    }
+
+    // Mutador para capitalizar la primera letra del significado en Aymara
+    public function setSignificadoAymaraAttribute($value)
+    {
+        $this->attributes['significado_aymara'] = ucfirst($value);
+    }   
 }

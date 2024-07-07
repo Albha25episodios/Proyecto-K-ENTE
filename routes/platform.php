@@ -2,6 +2,9 @@
 
 declare(strict_types=1);
 
+use App\Orchid\Screens\DocumentoEditScreen;
+use App\Orchid\Screens\DocumentoListScreen;
+use App\Orchid\Screens\DocumentoViewScreen;
 use App\Orchid\Screens\Examples\ExampleActionsScreen;
 use App\Orchid\Screens\Examples\ExampleCardsScreen;
 use App\Orchid\Screens\Examples\ExampleChartsScreen;
@@ -19,9 +22,6 @@ use App\Orchid\Screens\User\UserListScreen;
 use App\Orchid\Screens\User\UserProfileScreen;
 use Illuminate\Support\Facades\Route;
 use Tabuna\Breadcrumbs\Trail;
-use App\Orchid\Screens\QuechuaEditScreen;
-use App\Orchid\Screens\QuechuaListScreen;
-
 /*
 |--------------------------------------------------------------------------
 | Dashboard Routes
@@ -105,8 +105,42 @@ Route::screen('/examples/cards', ExampleCardsScreen::class)->name('platform.exam
 
 //Route::screen('idea', Idea::class, 'platform.screens.idea');
 
-Route::screen('quechua/{quechua?}', QuechuaEditScreen::class)
-    ->name('platform.quechua.edit');
+/* ==============================CRUD-DE-DOCUMENTOS===========================*/
 
-Route::screen('quechuas', QuechuaListScreen::class)
-    ->name('platform.quechua.list');
+// Ruta para la lista de documentos
+Route::screen('documentos', DocumentoListScreen::class)
+    ->name('platform.documento.list')
+    ->breadcrumbs(function (Trail $trail) {
+        return $trail
+            ->parent('platform.index')
+            ->push(__('Documentos'), route('platform.documento.list'));
+    });
+
+// Ruta para crear un nuevo documento
+Route::screen('documentos/create', DocumentoEditScreen::class)
+    ->name('platform.documento.create')
+    ->breadcrumbs(function (Trail $trail) {
+        return $trail
+            ->parent('platform.documento.list')
+            ->push(__('Create'), route('platform.documento.create'));
+    });
+
+// Ruta para editar un documento existente
+Route::screen('documentos/{documento}/edit', DocumentoEditScreen::class)
+    ->name('platform.documento.edit')
+    ->breadcrumbs(function (Trail $trail, $documento) {
+        return $trail
+            ->parent('platform.documento.list')
+            ->push(__('Edit'), route('platform.documento.edit', $documento));
+    });
+
+// Ruta para ver un documento existente
+Route::screen('documentos/{documento}/view', DocumentoViewScreen::class)
+    ->name('platform.documento.view')
+    ->breadcrumbs(function (Trail $trail, $documento) {
+        return $trail
+            ->parent('platform.documento.list')
+            ->push(__('View'), route('platform.documento.view', $documento));
+    });
+
+/*==============================================================================*/

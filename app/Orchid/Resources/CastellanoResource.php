@@ -3,7 +3,6 @@
 namespace App\Orchid\Resources;
 
 use App\Models\Castellano;
-use App\Orchid\Filters\CastellanoFilter;
 use App\Orchid\Filters\QuechuaFilter;
 use Orchid\Crud\Resource;
 use Orchid\Screen\Actions\Link;
@@ -97,12 +96,10 @@ class CastellanoResource extends Resource
 
           Input::make('significado_quechua')
               ->title('SIGNIFICADO - QUECHUA')
-              ->placeholder('significado de la palabra en Quechua')
               ->autocomplete('off'),
 
           Input::make('significado_aymara')
               ->title('SIGNIFICADO - AYMARA')
-              ->placeholder('significado de la palabra en Aymara')
               ->autocomplete('off'),
         ];
     }

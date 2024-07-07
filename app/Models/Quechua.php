@@ -22,4 +22,15 @@ class Quechua extends Model
         return $this->belongsToMany(Castellano::class, 'quechua_detalles', 'quechua_id', 'castellano_id');
     }
     
+    // Mutador para capitalizar la primera letra de la palabra
+    public function setPalabraAttribute($value)
+    {
+        $this->attributes['palabra'] = ucwords(strtolower($value));
+    }
+
+    // Mutador para capitalizar la primera letra de la oracion
+    public function setSignificadoAttribute($value)
+    {
+        $this->attributes['significado'] = ucfirst($value);
+    }
 }

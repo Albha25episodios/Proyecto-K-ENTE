@@ -42,8 +42,42 @@ class PlatformProvider extends OrchidServiceProvider
 
             Menu::make('Sample Screen')
                 ->icon('bs.collection')
-                ->route('platform.example')
-                ->badge(fn () => 6),
+                ->route('platform.example'),
+
+                //--------------------------------------------
+            /* Menu::make('Sample Screen')
+                ->icon('bs.collection')
+                ->route('platform.example.fields'),
+
+            Menu::make('Sample Screen')
+                ->icon('bs.collection')
+                ->route('platform.example.advanced'),
+                
+            Menu::make('Sample Screen')
+                ->icon('bs.collection')
+                ->route('platform.example.editors'),
+
+            Menu::make('Sample Screen')
+                ->icon('bs.collection')
+                ->route('platform.example.actions'),
+                
+            Menu::make('Sample Screen')
+                ->icon('bs.collection')
+                ->route('platform.example.layouts'),
+
+            Menu::make('Sample Screen')
+                ->icon('bs.collection')
+                ->route('platform.example.grid'),
+
+            Menu::make('Sample Screen')
+                ->icon('bs.collection')
+                ->route('platform.example.charts'),
+
+            Menu::make('Sample Screen')
+                ->icon('bs.collection')
+                ->route('platform.example.cards'),
+ */
+                //--------------------------------------------
 
             Menu::make(__('Users'))
                 ->icon('bs.people')
@@ -57,10 +91,10 @@ class PlatformProvider extends OrchidServiceProvider
                 ->permission('platform.systems.roles')
                 ->divider(),
 
-            Menu::make(__('Crear documento'))
+            Menu::make(__('DOCUMENTOS'))
                 ->icon('bs.people')
-                ->route('platform.quechua.list')
-                ->title(__('Resources')),
+                ->route('platform.documento.list')
+                ->title(__('Documento')),
         ];
     }
 

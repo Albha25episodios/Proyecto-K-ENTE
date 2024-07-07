@@ -21,4 +21,16 @@ class Aymara extends Model
     public function castellano() {
         return $this->belongsToMany(Aymara::class, 'aymara_detalles', 'aymara_id', 'castellano_id');
     }
+
+    // Mutador para capitalizar la primera letra de la palabra
+    public function setPalabraAttribute($value)
+    {
+        $this->attributes['palabra'] = ucwords(strtolower($value));
+    }
+
+    // Mutador para capitalizar la primera letra de la oracion
+    public function setSignificadoAttribute($value)
+    {
+        $this->attributes['significado'] = ucfirst($value);
+    }
 }
