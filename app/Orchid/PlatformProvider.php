@@ -13,39 +13,39 @@ use Orchid\Resources\CastellanoResource;
 
 class PlatformProvider extends OrchidServiceProvider
 {
-    /**
-     * Bootstrap the application services.
-     *
-     * @param Dashboard $dashboard
-     *
-     * @return void
-     */
-    public function boot(Dashboard $dashboard): void
-    {
-        parent::boot($dashboard);
-    }
+  /**
+   * Bootstrap the application services.
+   *
+   * @param Dashboard $dashboard
+   *
+   * @return void
+   */
+  public function boot(Dashboard $dashboard): void
+  {
+    parent::boot($dashboard);
+  }
 
-    /**
-     * Register the application menu.
-     *
-     * @return Menu[]
-     */
-    public function menu(): array
-    {
-        
-        return [
-          
-            Menu::make('Get Started')
-                ->icon('bs.book')
-                ->title('Navigation')
-                ->route(config('platform.index')),
+  /**
+   * Register the application menu.
+   *
+   * @return Menu[]
+   */
+  public function menu(): array
+  {
 
-            Menu::make('Sample Screen')
-                ->icon('bs.collection')
-                ->route('platform.example'),
+    return [
 
-                //--------------------------------------------
-            /* Menu::make('Sample Screen')
+      Menu::make('Empecemos')
+        ->icon('bs.book')
+        ->title('Navigation')
+        ->route(config('platform.index')),
+
+      Menu::make('Comentarios')
+        ->icon('bs.collection')
+        ->route('platform.example'),
+
+      //--------------------------------------------
+      /* Menu::make('Sample Screen')
                 ->icon('bs.collection')
                 ->route('platform.example.fields'),
 
@@ -77,38 +77,38 @@ class PlatformProvider extends OrchidServiceProvider
                 ->icon('bs.collection')
                 ->route('platform.example.cards'),
  */
-                //--------------------------------------------
+      //--------------------------------------------
 
-            Menu::make(__('Users'))
-                ->icon('bs.people')
-                ->route('platform.systems.users')
-                ->permission('platform.systems.users')
-                ->title(__('Access Controls')),
+      Menu::make(__('Users'))
+        ->icon('bs.people')
+        ->route('platform.systems.users')
+        ->permission('platform.systems.users')
+        ->title(__('Access Controls')),
 
-            Menu::make(__('Roles'))
-                ->icon('bs.shield')
-                ->route('platform.systems.roles')
-                ->permission('platform.systems.roles')
-                ->divider(),
+      Menu::make(__('Roles'))
+        ->icon('bs.shield')
+        ->route('platform.systems.roles')
+        ->permission('platform.systems.roles')
+        ->divider(),
 
-            Menu::make(__('DOCUMENTOS'))
-                ->icon('bs.people')
-                ->route('platform.documento.list')
-                ->title(__('Documento')),
-        ];
-    }
+      Menu::make(__('DOCUMENTOS'))
+        ->icon('bs.people')
+        ->route('platform.documento.list')
+        ->title(__('Documento')),
+    ];
+  }
 
-    /**
-     * Register permissions for the application.
-     *
-     * @return ItemPermission[]
-     */
-    public function permissions(): array
-    {
-        return [
-            ItemPermission::group(__('System'))
-                ->addPermission('platform.systems.roles', __('Roles'))
-                ->addPermission('platform.systems.users', __('Users')),
-        ];
-    }
+  /**
+   * Register permissions for the application.
+   *
+   * @return ItemPermission[]
+   */
+  public function permissions(): array
+  {
+    return [
+      ItemPermission::group(__('System'))
+        ->addPermission('platform.systems.roles', __('Roles'))
+        ->addPermission('platform.systems.users', __('Users')),
+    ];
+  }
 }

@@ -1,0 +1,37 @@
+/* Estilos para el buscador */
+.search-container {
+    max-width: 600px;
+}
+
+.search-input {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.search-button {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+/* Estilos para el navbar abecedario */
+.alphabet-nav {
+    background-color: #222;
+    padding: 10px 0;
+}
+
+.alphabet-list {
+    margin: 0;
+    padding: 0;
+}
+
+.alphabet-list li {
+    color: #fff;
+    margin: 0 10px;
+    font-size: 1.2em;
+    cursor: pointer;
+}
+
+.alphabet-list li:hover {
+    text-decoration: underline;
+}
