@@ -1,3 +1,17 @@
-<x-body meta-title="INICIO" meta-description="Home description">
-    <h1>INICIO</h1>
-</x-body>
+@extends('components.body')
+
+@section('title')
+    K'ente
+@endsection
+
+@section('navigation')
+    <x-partials.main_navigation />
+@endsection
+
+@section('top')
+    <x-partials.squares />
+@endsection
+
+@section('medium')
+    <x-partials.main />
+@endsection

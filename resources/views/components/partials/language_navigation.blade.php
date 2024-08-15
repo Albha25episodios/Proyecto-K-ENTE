@@ -2,7 +2,7 @@
     <div class="container d-flex align-items-center justify-content-between position-relative">
         <div class="logo">
             {{-- <h1 class="text-light"><a href="index.html"><span>Squadfree</span></a></h1> --}}
-            <a href="{{ route('ruta1') }}"><img src="images/logo_top.png" alt="" class="img-fluid"></a>
+            <a href="{{ route('welcome') }}"><img src="images/logo_top.png" alt="" class="img-fluid"></a>
         </div>
 
         <nav id="navbar" class="navbar">
